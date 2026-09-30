@@ -1,0 +1,49 @@
+/* Design tokens: colour, type and spacing. Light is the default theme. */
+:root {
+  --paper: #f5f2eb;
+  --paper-2: #efebe2;
+  --ink: #1b1d20;
+  --ink-2: #4a4d52;
+  --ink-3: #7b7d80;
+  --rule: rgba(27, 29, 32, 0.14);
+  --rule-strong: rgba(27, 29, 32, 0.32);
+  --accent: #c8412b;
+  --mat: #ffffff;
+  --mat-rule: rgba(27, 29, 32, 0.12);
+
+  --font-display: "Shippori Mincho", "Yu Mincho", "Hiragino Mincho ProN", Georgia, serif;
+  --font-body: "Zen Kaku Gothic New", "Hiragino Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+
+  --fs-small: 0.8125rem;
+  --fs-body: 1rem;
+  --fs-lead: clamp(1.05rem, 1.1vw, 1.2rem);
+  --fs-h3: clamp(1.25rem, 1.6vw, 1.5rem);
+  --fs-h2: clamp(2rem, 3.6vw, 3.25rem);
+  --fs-h2-minor: clamp(1.6rem, 2.6vw, 2.25rem);
+  --fs-h1: clamp(2.4rem, 4.2vw, 4.25rem);
+
+  --rail-w: 232px;
+  --gutter: clamp(1rem, 4vw, 4.5rem);
+  --content-max: 1120px;
+  --space-section: clamp(6rem, 12vw, 11rem);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-snap: cubic-bezier(0.22, 1, 0.36, 1);
+
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --paper: #15171a;
+  --paper-2: #1b1e22;
+  --ink: #ece8df;
+  --ink-2: #b6b2aa;
+  --ink-3: #85827c;
+  --rule: rgba(236, 232, 223, 0.13);
+  --rule-strong: rgba(236, 232, 223, 0.3);
+  --accent: #e0573f;
+  --mat: #f7f5f0;
+  --mat-rule: rgba(236, 232, 223, 0.18);
+  color-scheme: dark;
+}

@@ -1,0 +1,12 @@
+{
+  "window_power_density_Wm2": 10.0,
+  "cell_irradiance_Wm2": 3.5509098796615897,
+  "device": {
+    "powerDensityCell_Wm2": 3.5509098796615897,
+    "power_mW": 0.6655363195880858,
+    "efficiencyPct": 7.497079251715764,
+    "jsc": 0.12476382297986671,
+    "voc": 0.48251994591220815,
+    "ff": 44.22092347187297
+  }
+}

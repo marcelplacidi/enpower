@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en-GB" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ENPOWER | Chalcogenide thin films for indoor photovoltaics</title>
+  <meta name="description" content="ENPOWER develops sustainable chalcogenide thin film solar cells (kesterite, antimony chalcogenides, CdTe and selenium) for indoor light and low power IoT devices. CETP Joint Call 2023.">
+  <meta name="color-scheme" content="light dark">
+  <script src="assets/js/theme-init.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+  <link rel="icon" href="assets/img/logos/enpower.png">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+  <link rel="stylesheet" href="assets/css/motion.css">
+  <script src="assets/js/theme.js" defer></script>
+  <script src="assets/js/nav.js" defer></script>
+  <script src="assets/js/reveal.js" defer></script>
+  <script src="assets/js/lightbox.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="rail" id="rail">
+    <div class="rail__top">
+      <a class="rail__logo" href="#top" aria-label="ENPOWER, back to top">
+        <img class="logo-light" src="assets/img/logos/enpower.png" alt="ENPOWER" width="1200" height="518">
+        <img class="logo-dark" src="assets/img/logos/enpower-dark.png" alt="ENPOWER" width="1344" height="662">
+      </a>
+      <button class="rail__menu" type="button" aria-expanded="false" aria-controls="rail-nav">
+        <span class="rail__menu-bar" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+    </div>
+    <div class="rail__body" id="rail-nav">
+      <nav aria-label="Sections">
+        <ol class="rail__links">
+          <li><a href="#project"><span class="rail__num">01</span>Project</a></li>
+          <li><a href="#results"><span class="rail__num">02</span>Experimental results</a></li>
+          <li><a href="#modelling"><span class="rail__num">03</span>Modelling</a></li>
+          <li><a href="#consortium"><span class="rail__num">04</span>Consortium</a></li>
+          <li><a href="#contact"><span class="rail__num">05</span>Contact</a></li>
+        </ol>
+      </nav>
+      <div class="rail__foot">
+        <button class="theme-toggle" type="button" aria-label="Switch colour theme">
+          <span class="theme-toggle__opt" data-opt="light">Light</span>
+          <span class="theme-toggle__sep" aria-hidden="true">/</span>
+          <span class="theme-toggle__opt" data-opt="dark">Dark</span>
+        </button>
+        <p class="rail__contact">Marcel Placidi<br><a href="mailto:marcel.placidi@upc.edu">marcel.placidi@upc.edu</a></p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Funding band: AEI publicity rules require this on the first screen -->
+    <aside class="funding-band" aria-label="Funding">
+      <img class="funding-band__lockup" src="assets/img/logos/miciu-cofinanciado-aei.png" width="1800" height="349" loading="eager" alt="Ministerio de Ciencia, Innovación y Universidades, cofinanciado por la Unión Europea, Agencia Estatal de Investigación.">
+      <div class="funding-band__text">
+        <!-- TODO: insert the AEI grant reference (e.g. PCI2024-xxxxxx) after "Proyecto ENPOWER" once known -->
+        <p class="funding-band__es" lang="es">Proyecto ENPOWER financiado por MICIU/AEI/10.13039/501100011033 y cofinanciado por la Unión Europea.</p>
+        <p class="funding-band__en">ENPOWER is funded by MICIU/AEI/10.13039/501100011033 and co-funded by the European Union, within the Clean Energy Transition Partnership (CETP) Joint Call 2023 (proposal Cetp-2023-00435).</p>
+      </div>
+    </aside>
+
+    <!-- Hero -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__text">
+        <p class="eyebrow hero__item">ENPOWER · CETP Joint Call 2023</p>
+        <h1 class="hero__title hero__item" id="hero-title">Sustainable chalcogenide thin films for low power photovoltaics</h1>
+        <p class="hero__sub hero__item">Wide bandgap thin film solar cells designed for the light of offices, homes and factories, in order to power IoT devices without batteries.</p>
+        <a class="hero__cta hero__item link-line" href="#results">See the experimental results <span aria-hidden="true">→</span></a>
+      </div>
+      <figure class="hero__figure hero__item">
+        <img src="assets/img/hero.png" width="2062" height="1493" loading="eager" fetchpriority="high"
+             alt="Three-dimensional model of a furnished office showing how much light reaches each surface, with a small indoor solar cell marked in red on a desk in front of the window.">
+        <figcaption>Realistic indoor PV modelling of a furnished office. The colour scale gives the light reflected by every surface (logarithmic), with 10 W/m² entering through each window and the ceiling panels on; the cell sits on the desk by the left window.</figcaption>
+      </figure>
+    </section>
+
+    <!-- 01 Project -->
+    <section class="section" id="project" aria-labelledby="project-title">
+      <p class="section__label reveal">01 · Project</p>
+      <div class="split">
+        <h2 class="section__title reveal" id="project-title">Indoor light is a different resource</h2>
+        <div class="prose reveal">
+          <p>The number of connected devices is expected to reach one trillion by 2035, and most of them will still rely on batteries that need replacing, recharging and recycling. A large part of these devices will however operate indoors, where a small solar cell could power them for their whole lifetime. Indoor lighting (LEDs, fluorescent tubes, daylight through a window) emits mostly in the visible range, which shifts the optimum bandgap of the absorber from about 1.1 eV for sunlight to the 1.5 to 2.0 eV region.</p>
+          <p>ENPOWER aims to demonstrate a new generation of cost-efficient, robust and stable PV devices specially designed for indoor applications, based on wide bandgap chalcogenide thin films: kesterites (CZTS), antimony chalcogenides, CdTe and elemental selenium. All of them are made with low-cost, scalable deposition processes and low environmental impact materials, and none of them suffers from the stability issues that still limit perovskite, organic and dye-sensitised cells.</p>
+        </div>
+      </div>
+
+      <dl class="rows reveal">
+        <div class="rows__item"><dt>Materials</dt><dd>kesterites (CZTS), Sb chalcogenides, CdTe and elemental Se, with the bandgap tuned for indoor light.</dd></div>
+        <div class="rows__item"><dt>Devices</dt><dd>identification of the performance limiting factors and optimised architectures, in particular the selective contacts.</dd></div>
+        <div class="rows__item"><dt>Indoor specificities and real testing</dt><dd>real indoor situations, a dedicated characterisation platform and long-term monitoring.</dd></div>
+      </dl>
+
+      <div class="split split--wide">
+        <ol class="timeline reveal">
+          <li><span class="timeline__year">Year 1</span><span>IoT device power requirements, indoor characterisation platform, modelling results and optimal indoor architecture.</span></li>
+          <li><span class="timeline__year">Year 2</span><span>optimised absorbers (bandgap) and selective contacts.</span></li>
+          <li><span class="timeline__year">Year 3</span><span>complete prototype of a PV-powered IoT system and monitoring results.</span></li>
+        </ol>
+        <figure class="fig reveal">
+          <button class="fig__zoom" type="button"><img src="assets/img/results/wp-structure.png" width="1600" height="1267" loading="lazy" decoding="async" alt="Work package structure of ENPOWER, from requirements and device design to absorbers, selective contacts, prototyping and demonstration, with the advisory board below."></button>
+          <figcaption>Work package structure and advisory board (Worldsensing, Solems, Soplugged, Metsolar and CTF Solar).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 02 Experimental results -->
+    <section class="section section--results" id="results" aria-labelledby="results-title">
+      <p class="section__label reveal">02 · Experimental results</p>
+      <div class="split">
+        <h2 class="section__title reveal" id="results-title">Measured under indoor light</h2>
+        <p class="prose reveal">All the devices below were measured under controlled indoor illumination, at incident powers down to a few tens of µW/cm² and colour temperatures from 2700 to 6000 K. Efficiencies are given both under the standard AM1.5G spectrum and under indoor light, since the two can differ by a factor of almost two for the same cell.</p>
+      </div>
+
+      <ul class="keyfigs reveal" aria-label="Key figures">
+        <li><span class="keyfigs__num">18.1 %</span><span class="keyfigs__label">Ge-alloyed CZTS at 3 mW/cm² (~10 000 lux)</span></li>
+        <li><span class="keyfigs__num">18 %</span><span class="keyfigs__label">Sb₂S₃ with sulphide electron transport layers, indoor</span></li>
+        <li><span class="keyfigs__num">15.2 %</span><span class="keyfigs__label">Cd-free CZTS (ink route, ALD ZTO), indoor</span></li>
+        <li><span class="keyfigs__num">&gt; 10 %</span><span class="keyfigs__label">Elemental selenium, indoor</span></li>
+      </ul>
+
+      <!-- 2.1 -->
+      <article class="sub" aria-labelledby="r21">
+        <div class="sub__text reveal">
+          <h3 id="r21"><span class="sub__num">2.1</span>Indoor characterisation platform</h3>
+          <p>In order to compare devices under realistic and reproducible conditions, we built a characterisation platform around a 28-LED class AAA solar simulator (G2V Pico). Both the incident power and the colour temperature of the source can be varied, covering 24 to 10 248 lux in agreement with the IEC TS 62607-7-2 standard. We also measured the light available at four real positions in the laboratory, which ranges from 1.9 mW/cm² (~9000 lux) near the window down to 0.07 mW/cm² (~280 lux) in the darkest corner.</p>
+          <table class="data">
+            <caption>Light measured at four positions in the laboratory</caption>
+            <thead><tr><th scope="col">Position</th><th scope="col">Power (mW/cm²)</th><th scope="col">Illuminance (lux)</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>1.9</td><td>~9000</td></tr>
+              <tr><td>2</td><td>0.09</td><td>~320</td></tr>
+              <tr><td>3</td><td>1.55</td><td>~7800</td></tr>
+              <tr><td>4</td><td>0.07</td><td>~280</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="figs figs--stack reveal">
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/platform-lab.jpg" width="557" height="419" loading="lazy" decoding="async" alt="Laboratory office used for the indoor light measurements."></button>
+            <figcaption>The laboratory where the four positions were measured.</figcaption>
+          </figure>
+          <div class="figs__pair">
+            <figure class="fig">
+              <button class="fig__zoom" type="button"><img src="assets/img/results/platform-simulator.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="The G2V Pico LED solar simulator."></button>
+              <figcaption>28-LED class AAA solar simulator (G2V Pico).</figcaption>
+            </figure>
+            <figure class="fig">
+              <button class="fig__zoom" type="button"><img src="assets/img/results/platform-spectra.png" width="1058" height="860" loading="lazy" decoding="async" alt="Spectral power density of the simulator at several colour temperatures and at 100, 50, 25 and 10 % intensity."></button>
+              <figcaption>Source spectra at variable colour temperature and incident power.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2.2 -->
+      <article class="sub sub--reverse" aria-labelledby="r22">
+        <div class="sub__text reveal">
+          <h3 id="r22"><span class="sub__num">2.2</span>Kesterite: Li and Na co-doped CZTS</h3>
+          <p>Our first serious attempt with kesterite used a Cu₂ZnSnS₄ absorber (1.5 eV) co-doped with lithium and sodium. The cell reaches 10.1 % under AM1.5G, however it performs much better indoors, with 15 % at 3 mW/cm² (about 10 000 lux). These results were published in Solar RRL (2025).</p>
+          <p class="ref"><a class="link-line" href="https://doi.org/10.1002/solr.202400756" rel="noopener">“Attaining 15.1% Efficiency in Cu₂ZnSnS₄ Solar Cells Under Indoor Conditions Through Sodium and Lithium Codoping”, Solar RRL 2400756 (2025).</a></p>
+        </div>
+        <div class="figs figs--mosaic reveal">
+          <figure class="fig fig--main">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/czts-jv.png" width="741" height="618" loading="lazy" decoding="async" alt="Current-voltage curve of the Li-Na co-doped CZTS cell under AM1.5G, 10.1 % efficiency."></button>
+            <figcaption>AM1.5G: Voc 722 mV, Jsc 23.4 mA/cm², FF 59.1 %, PCE 10.1 %.</figcaption>
+          </figure>
+          <figure class="fig fig--side">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/czts-sem.png" width="472" height="723" loading="lazy" decoding="async" alt="Top view and cross-section electron micrographs of the co-doped CZTS absorber."></button>
+            <figcaption>Top view and cross-section of the Li-Na co-doped absorber.</figcaption>
+          </figure>
+          <figure class="fig fig--full">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/czts-indoor-maps.png" width="1600" height="1200" loading="lazy" decoding="async" alt="Maps of open-circuit voltage, short-circuit current, fill factor and efficiency against incident power and colour temperature."></button>
+            <figcaption>Indoor performance maps against incident power and colour temperature.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- 2.3 -->
+      <article class="sub sub--highlight" aria-labelledby="r23">
+        <div class="sub__text reveal">
+          <h3 id="r23"><span class="sub__num">2.3</span>Kesterite: Ge-alloyed CZTS</h3>
+          <p>Alloying 10 % Ge into the kesterite widens the bandgap to 1.6 eV, closer to the indoor optimum. The efficiency under AM1.5G increases to 11.7 %, and indoors it reaches 18.1 % at 3 mW/cm². The maps highlight that the efficiency remains remarkably stable across colour temperatures, and stays above ~13.5 % down to the lowest incident powers measured.</p>
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/czts-ge-jv.png" width="1600" height="1225" loading="lazy" decoding="async" alt="Current-voltage curve of the Ge-alloyed CZTS cell under AM1.5G, 11.7 % efficiency."></button>
+            <figcaption>AM1.5G: Voc 813 mV, Jsc 21.3 mA/cm², FF 67.8 %, PCE 11.7 %.</figcaption>
+          </figure>
+        </div>
+        <div class="figs figs--grid2 reveal">
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/czts-ge-pce.png" width="943" height="722" loading="lazy" decoding="async" alt="Efficiency map of the Ge-alloyed CZTS cell against incident power and colour temperature, up to 18.1 %."></button>
+            <figcaption>Efficiency under LED light.</figcaption>
+          </figure>
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/czts-ge-voc.png" width="943" height="722" loading="lazy" decoding="async" alt="Open-circuit voltage map of the Ge-alloyed CZTS cell."></button>
+            <figcaption>Open-circuit voltage.</figcaption>
+          </figure>
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/czts-ge-ff.png" width="943" height="722" loading="lazy" decoding="async" alt="Fill factor map of the Ge-alloyed CZTS cell."></button>
+            <figcaption>Fill factor.</figcaption>
+          </figure>
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/czts-ge-jsc.png" width="943" height="722" loading="lazy" decoding="async" alt="Short-circuit current map of the Ge-alloyed CZTS cell."></button>
+            <figcaption>Short-circuit current.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- 2.4 -->
+      <article class="sub sub--stacked" aria-labelledby="r24">
+        <div class="sub__text sub__text--wide reveal">
+          <h3 id="r24"><span class="sub__num">2.4</span>Cd-free contacts and selective layers</h3>
+          <p>The CdS buffer absorbs an important part of the blue light, which is precisely where LEDs emit. We therefore replaced it by ZnSnO (ZTO) grown by atomic layer deposition, applied both to the PVD and to the molecular ink routes of CZTS. The PVD route gives a record active area efficiency of 10.11 % under AM1.5G and up to 11 % indoors after optimising the post-deposition treatment, while the ink route gives 9.57 % under AM1.5G and up to 15.2 % indoors. For Sb₂S₃ and Se devices we developed a set of selective layers (TiO₂, ZnS, ZnO, Zn(O,S), Zn(Mg,O) and CdS as electron transport layers; Spiro-OMeTAD and MoOx as hole transport layers). Sulphide based electron transport layers allow the successful growth of Sb₂S₃ absorbers in superstrate configuration, and the best devices reach indoor efficiencies of up to 18 %.</p>
+        </div>
+        <figure class="fig fig--band reveal">
+          <button class="fig__zoom" type="button"><img src="assets/img/results/czts-ink-route.png" width="1024" height="212" loading="lazy" decoding="async" alt="Schematic of the molecular ink route used to prepare CZTS absorbers."></button>
+          <figcaption>Molecular ink route.</figcaption>
+        </figure>
+        <div class="figs figs--row3 reveal">
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/contacts-pce.png" width="1600" height="1104" loading="lazy" decoding="async" alt="Efficiency map of a Cd-free CZTS device against incident power density and colour temperature, up to 15.2 %."></button>
+            <figcaption>Efficiency of the Cd-free CZTS (ink route) against incident power and colour temperature.</figcaption>
+          </figure>
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/contacts-voc.png" width="1600" height="1114" loading="lazy" decoding="async" alt="Open-circuit voltage map of the Cd-free device."></button>
+            <figcaption>Open-circuit voltage.</figcaption>
+          </figure>
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/contacts-ff.png" width="1600" height="1104" loading="lazy" decoding="async" alt="Fill factor map of the Cd-free device."></button>
+            <figcaption>Fill factor.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- 2.5 -->
+      <article class="sub" aria-labelledby="r25">
+        <div class="sub__text reveal">
+          <h3 id="r25"><span class="sub__num">2.5</span>Elemental selenium</h3>
+          <p>Selenium (about 1.9 eV) is a single element absorber, which makes it one of the simplest materials to process. By thermal evaporation, we optimised the hole transport layer among MoOx, WOx and V₂Ox, and with 20 nm of MoOx the device reaches 5.6 % under AM1.5G. Indoors, both 20 nm of MoOx and 10 nm of V₂O₅ allow to exceed 10 %. With vapour transport deposition, the highest efficiencies are obtained around 120 °C, where the film grows with a (003) orientation; this orientation also gives an improved and stable performance under indoor light, above 10 %.</p>
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/se-stack.png" width="676" height="479" loading="lazy" decoding="async" alt="Layer stack of the selenium cell: glass, FTO, TiO₂, selenium, MoOx and a gold contact."></button>
+            <figcaption>Superstrate device: SLG / FTO / TiO₂ / Se / MoOx / Au.</figcaption>
+          </figure>
+        </div>
+        <div class="figs figs--stack reveal">
+          <div class="figs__pair">
+            <figure class="fig">
+              <button class="fig__zoom" type="button"><img src="assets/img/results/se-evap-jv.png" width="3216" height="2461" loading="lazy" decoding="async" alt="Current-voltage curve of the evaporated selenium cell with 20 nm MoOx under AM1.5G."></button>
+              <figcaption>AM1.5G with 20 nm MoOx: Voc 760 mV, Jsc 12.8 mA/cm², FF 57.3 %, PCE 5.6 %.</figcaption>
+            </figure>
+            <figure class="fig">
+              <button class="fig__zoom" type="button"><img src="assets/img/results/se-evap-maps-b.png" width="1388" height="987" loading="lazy" decoding="async" alt="Indoor performance maps of an evaporated selenium device."></button>
+              <figcaption>Indoor performance maps of an evaporated device (hole transport layer study).</figcaption>
+            </figure>
+          </div>
+          <div class="figs__pair">
+            <figure class="fig">
+              <button class="fig__zoom" type="button"><img src="assets/img/results/se-samples.jpg" width="1600" height="1200" loading="lazy" decoding="async" alt="Selenium films deposited by vapour transport deposition along a temperature gradient."></button>
+              <figcaption>VTD films across the substrate temperature range.</figcaption>
+            </figure>
+            <figure class="fig">
+              <button class="fig__zoom" type="button"><img src="assets/img/results/se-vtd-temperature-maps.png" width="1600" height="852" loading="lazy" decoding="async" alt="Grid of indoor performance maps for selenium devices grown between 100 and 125 °C."></button>
+              <figcaption>Indoor maps of VTD devices grown between 125 and 100 °C.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2.6 -->
+      <article class="sub sub--stacked" aria-labelledby="r26">
+        <div class="sub__text sub__text--wide reveal">
+          <h3 id="r26"><span class="sub__num">2.6</span>Benchmarking chalcogenide technologies</h3>
+          <p>We measured CdTe, Sb₂S₃, CZTS, Se, nano-Si and a commercial a-Si module on the same platform. Many devices perform surprisingly well indoors, which corroborates their potential for high efficiencies. However, the performance is compromised at very low irradiance when the shunt resistance is too low: Rsh should be at least 1 MΩ·cm², and Rs should not be detrimental.</p>
+        </div>
+        <div class="figs figs--row2 reveal">
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/benchmark-jv.jpg" width="1431" height="821" loading="lazy" decoding="async" alt="Current-voltage curves of CdTe, Sb₂S₃, CZTS, Se, nano-Si and a-Si devices."></button>
+            <figcaption>Current-voltage curves of the six technologies.</figcaption>
+          </figure>
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/benchmark-maps-2.jpg" width="1430" height="771" loading="lazy" decoding="async" alt="Efficiency maps of the six technologies against incident power and colour temperature."></button>
+            <figcaption>Indoor efficiency maps of the six technologies.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- 2.7 -->
+      <article class="sub sub--reverse" aria-labelledby="r27">
+        <div class="sub__text reveal">
+          <h3 id="r27"><span class="sub__num">2.7</span>Advanced characterisation</h3>
+          <p>We developed Raman scattering and reflectance based methodologies in order to assess the thickness and composition of the functional layers directly in the device: (Sb,Bi)₂S₃ alloys, MoOx, ZnSnO, Zn(O,S), i-ZnO and Al:ZnO. The Raman spectra follow the composition of the (Sb,Bi)₂S₃ solid solution, and the reflectance allows to map the apparent thickness of nanometric MoOx layers across a whole sample.</p>
+        </div>
+        <div class="figs figs--mosaic reveal">
+          <figure class="fig fig--main">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/raman-sbbis.png" width="1050" height="888" loading="lazy" decoding="async" alt="Raman spectra of (Sb,Bi)₂S₃ with increasing bismuth content."></button>
+            <figcaption>Raman spectra across the (Sb,Bi)₂S₃ solid solution.</figcaption>
+          </figure>
+          <figure class="fig fig--side">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/raman-thickness-maps.png" width="1227" height="842" loading="lazy" decoding="async" alt="Maps of apparent MoOx thickness and roughness over a sample."></button>
+            <figcaption>In-device apparent thickness of MoOx from reflectance.</figcaption>
+          </figure>
+          <figure class="fig fig--full">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/raman-combinatorial.png" width="1496" height="445" loading="lazy" decoding="async" alt="Combinatorial sample with a thickness gradient and discrete sample set."></button>
+            <figcaption>Combinatorial and discrete sample designs.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- 2.8 -->
+      <article class="sub" aria-labelledby="r28">
+        <div class="sub__text reveal">
+          <h3 id="r28"><span class="sub__num">2.8</span>Real-time monitoring</h3>
+          <p>A custom software tracks the maximum power point of the cells and performs periodic current-voltage measurements, in order to follow the devices over long periods under changing light. The example below shows the same cell under three illumination regimes: the efficiency varies by a factor of about 3 and returns cleanly to its baseline.</p>
+        </div>
+        <div class="figs figs--stack reveal">
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/monitoring-setup.png" width="1429" height="779" loading="lazy" decoding="async" alt="Monitoring setup with LEDs, power meter and cells, and example traces."></button>
+            <figcaption>Monitoring setup and example traces.</figcaption>
+          </figure>
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/monitoring-pce.png" width="787" height="332" loading="lazy" decoding="async" alt="Efficiency of one cell over time under three light regimes."></button>
+            <figcaption>Same cell, three light regimes.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- 2.9 -->
+      <article class="sub sub--next" aria-labelledby="r29">
+        <div class="sub__text sub__text--wide reveal">
+          <h3 id="r29"><span class="sub__num">2.9</span>Next steps</h3>
+          <p>The last year focuses on the prototype: electrical interconnection and encapsulation of the cells into mini-modules, and the demonstration of a PV-powered IoT device.</p>
+        </div>
+        <figure class="fig fig--inset reveal">
+          <img src="assets/img/results/prototype.png" width="167" height="152" loading="lazy" decoding="async" alt="First prototype of a PV-powered IoT sensor with an antenna.">
+          <figcaption>First PV-powered IoT prototype.</figcaption>
+        </figure>
+      </article>
+    </section>
+
+    <!-- 03 Modelling -->
+    <section class="section section--modelling" id="modelling" aria-labelledby="modelling-title">
+      <p class="section__label reveal">03 · Modelling</p>
+      <div class="split">
+        <h2 class="section__title section__title--minor reveal" id="modelling-title">Why indoor cells need a different design</h2>
+        <p class="prose reveal">The modelling was used to identify the main performance limiting factors before optimising the devices, and to predict how a cell behaves once placed in a real room.</p>
+      </div>
+
+      <article class="sub sub--stacked" aria-labelledby="m31">
+        <div class="sub__text sub__text--wide reveal">
+          <h3 id="m31"><span class="sub__num">3.1</span>Optimum bandgap</h3>
+          <p>Under AM1.5G, the thermalisation and transmission losses place the optimum bandgap close to 1.1 to 1.4 eV. Under an LED spectrum, the narrow emission in the visible range moves the optimum to about 1.8 to 1.9 eV, whatever the colour temperature, with detailed balance efficiencies above 50 %.</p>
+        </div>
+        <div class="figs figs--row3 reveal">
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/theory-sq-am15.png" width="640" height="480" loading="lazy" decoding="async" alt="Energy losses and converted energy against bandgap under the AM1.5 solar spectrum."></button>
+            <figcaption>Energy balance against bandgap, AM1.5 solar spectrum.</figcaption>
+          </figure>
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/theory-sq-led.png" width="640" height="480" loading="lazy" decoding="async" alt="Energy losses and converted energy against bandgap under a 5000 K LED."></button>
+            <figcaption>Energy balance against bandgap, 5000 K indoor LED.</figcaption>
+          </figure>
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/theory-pce-eg-cct.png" width="943" height="722" loading="lazy" decoding="async" alt="Efficiency map against bandgap and colour temperature with the optimum bandgap marked."></button>
+            <figcaption>Detailed balance efficiency against bandgap and LED colour temperature.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="sub sub--stacked" aria-labelledby="m32">
+        <div class="sub__text sub__text--wide reveal">
+          <h3 id="m32"><span class="sub__num">3.2</span>Contacts and resistances</h3>
+          <p>The contact layers are more critical indoors than outdoors: a CdS buffer absorbs a large part of the LED emission, while ZnS is almost transparent in that range. On the electrical side, series resistances up to ~100 Ω·cm² remain acceptable due to the low currents, whereas at low injection a shunt resistance above 10⁵ Ω·cm² is almost mandatory.</p>
+        </div>
+        <div class="figs figs--row3 reveal">
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/theory-parasitic-absorption.png" width="943" height="722" loading="lazy" decoding="async" alt="Absorptivity of CdS and ZnS buffers compared with two LED spectra."></button>
+            <figcaption>Parasitic absorption of the buffer layer against LED spectra (2649 K and 6415 K).</figcaption>
+          </figure>
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/theory-pce-rs.png" width="943" height="722" loading="lazy" decoding="async" alt="Efficiency against series resistance and incident power."></button>
+            <figcaption>Efficiency against series resistance.</figcaption>
+          </figure>
+          <figure class="fig">
+            <button class="fig__zoom" type="button"><img src="assets/img/results/theory-pce-rsh.png" width="943" height="722" loading="lazy" decoding="async" alt="Efficiency against shunt resistance and incident power."></button>
+            <figcaption>Efficiency against shunt resistance.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="sub sub--room" aria-labelledby="m33">
+        <div class="sub__text reveal">
+          <h3 id="m33"><span class="sub__num">3.3</span>Realistic indoor PV modelling</h3>
+          <p>The light reaching a cell depends on where it is placed: the windows, the luminaires, the reflectance of the walls and the furniture all matter. We therefore model the room in three dimensions, solving the inter-reflections on every surface, furniture included, and couple the spectrum reaching the cell to the device model. This gives the power produced over time, the voltage stability (essential for IoT), the energy that can be stored and the efficiency under changing illumination.</p>
+        </div>
+        <figure class="fig fig--room reveal">
+          <button class="fig__zoom fig__zoom--bare" type="button"><img src="assets/img/hero.png" width="2062" height="1493" loading="lazy" decoding="async" alt="Three-dimensional model of a furnished office with the light on every surface and the position of the indoor solar cell."></button>
+          <figcaption>Furnished office, 10 W/m² at each window and ceiling panels on. The cell (red) lies on the desk in front of the left window.</figcaption>
+        </figure>
+      </article>
+    </section>
+
+    <!-- 04 Consortium -->
+    <section class="section" id="consortium" aria-labelledby="consortium-title">
+      <p class="section__label reveal">04 · Consortium</p>
+      <h2 class="section__title reveal" id="consortium-title">Four groups, complementary expertise</h2>
+      <ul class="partners reveal">
+        <li class="partners__row">
+          <span class="partners__logo"><img src="assets/img/logos/upc-wide.png" width="320" height="67" loading="lazy" alt="UPC"></span>
+          <span class="partners__name">Universitat Politècnica de Catalunya, Barcelona (coordinator)</span>
+          <span class="partners__lead">Marcel Placidi</span>
+        </li>
+        <li class="partners__row">
+          <span class="partners__logo"><img src="assets/img/logos/irec.png" width="216" height="162" loading="lazy" alt="IREC"></span>
+          <span class="partners__name">Catalonia Institute for Energy Research, Sant Adrià de Besòs</span>
+          <span class="partners__lead">Alejandro Pérez-Rodríguez</span>
+        </li>
+        <li class="partners__row">
+          <span class="partners__logo"><img src="assets/img/logos/taltech.png" width="204" height="192" loading="lazy" alt="TalTech"></span>
+          <span class="partners__name">Tallinn University of Technology</span>
+          <span class="partners__lead">Nicolae Spalatu</span>
+        </li>
+        <li class="partners__row">
+          <span class="partners__logo"><img src="assets/img/logos/univr.png" width="265" height="82" loading="lazy" alt="UNIVR"></span>
+          <span class="partners__name">Università degli Studi di Verona</span>
+          <span class="partners__lead">Alessandro Romeo</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 05 Contact -->
+    <section class="section section--contact" id="contact" aria-labelledby="contact-title">
+      <p class="section__label reveal">05 · Contact</p>
+      <div class="split">
+        <h2 class="section__title reveal" id="contact-title">Contact</h2>
+        <div class="contact reveal">
+          <p class="prose">For any question on the project, collaboration or access to the results, please contact the coordinator.</p>
+          <p class="contact__name">Marcel Placidi</p>
+          <p class="contact__role">Associate Professor, Universitat Politècnica de Catalunya (UPC) and IREC</p>
+          <a class="contact__mail link-line" href="mailto:marcel.placidi@upc.edu">marcel.placidi@upc.edu</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <img class="logo-light" src="assets/img/logos/enpower.png" width="1200" height="518" loading="lazy" alt="ENPOWER">
+        <img class="logo-dark" src="assets/img/logos/enpower-dark.png" width="1344" height="662" loading="lazy" alt="ENPOWER">
+      </div>
+      <div class="footer__funding">
+        <img class="footer__lockup" src="assets/img/logos/miciu-cofinanciado-aei.png" width="1800" height="349" loading="lazy" alt="Ministerio de Ciencia, Innovación y Universidades, cofinanciado por la Unión Europea, Agencia Estatal de Investigación.">
+        <!-- TODO: insert the AEI grant reference (e.g. PCI2024-xxxxxx) after "Proyecto ENPOWER" once known -->
+        <p class="footer__statement" lang="es">Proyecto ENPOWER financiado por MICIU/AEI/10.13039/501100011033 y cofinanciado por la Unión Europea.</p>
+        <p class="footer__statement footer__statement--en">ENPOWER is funded by MICIU/AEI/10.13039/501100011033 and co-funded by the European Union, within the Clean Energy Transition Partnership (CETP) Joint Call 2023 (proposal Cetp-2023-00435).</p>
+        <ul class="footer__logos">
+          <li><img class="footer__cetp" src="assets/img/logos/cetp.png" width="836" height="409" loading="lazy" alt="Clean Energy Transition Partnership"></li>
+          <li class="footer__eu">
+            <img class="logo-light" src="assets/img/logos/eu-cofunded-positive.png" width="1200" height="252" loading="lazy" alt="Co-funded by the European Union">
+            <img class="logo-dark" src="assets/img/logos/eu-cofunded-negative.png" width="1200" height="252" loading="lazy" alt="Co-funded by the European Union">
+          </li>
+        </ul>
+        <p class="footer__small">© 2026 ENPOWER consortium</p>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Enlarged figure">
+    <form method="dialog"><button class="lightbox__close" type="submit" aria-label="Close">×</button></form>
+    <img class="lightbox__img" src="" alt="">
+    <p class="lightbox__caption"></p>
+  </dialog>
+</body>
+</html>
